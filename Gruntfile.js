@@ -1,7 +1,8 @@
 "use strict";
 
 module.exports = function(grunt) {
-  var fs = require("fs"),
+  //noinspection Eslint
+    var fs = require("fs"),
     Util = {
       jsBasePath: "_src/",
       parseBasePath: "_parse/",

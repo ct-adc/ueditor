@@ -151,6 +151,7 @@
         editor.setOpt({
           wordCount: true,
           maximumWords: 10000,
+          wordOverCanInput: false,
           wordCountMsg:
             editor.options.wordCountMsg || editor.getLang("wordCountMsg"),
           wordOverFlowMsg:
@@ -166,8 +167,15 @@
         }
         var count = editor.getContentLength(true);
         if (count > max) {
-          countDom.innerHTML = errMsg;
-          editor.fireEvent("wordcountoverflow");
+            if(opt.wordOverCanInput){
+                countDom.innerHTML = errMsg;
+                editor.fireEvent("wordcountoverflow");
+            } else{
+                var content = editor.getContentTxt();
+                editor.setContent(content.substring(0,max));
+                editor.focus(true);
+            }
+
         } else {
           countDom.innerHTML = msg
             .replace("{#leave}", max - count)
