@@ -8,6 +8,7 @@
 
 新增 wordOverCanInput: 默认值 false, 指定超出限制字符数后是否还可以输入
 
+新增 enterListSense: 默认值 true, 指定回车是否感应出列表，如1. a 回车后是否感应出2.
 
 Get Started
 =====
